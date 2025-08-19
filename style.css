@@ -1,0 +1,290 @@
+:root{
+  --bg:#0f1f1e;            /* preto esverdeado */
+  --panel:#152927;         /* verde-azulado escuro */
+  --text:#E9E7E1;          /* branco quente */
+  --muted:#CFC7B3;         /* texto secundário */
+  --gold:#A98F2E;          /* dourado */
+  --gold-2:#C7AE4B;        /* dourado claro */
+  --btn:#1D3835;           /* botão */
+  --btn-hov:#244642;       /* hover */
+  --ok:#39C06B;
+  --bad:#E35C5C;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+}
+
+.container{
+  width:100%;
+  max-width:1000px;
+  padding:16px;
+}
+
+header.container{
+  text-align:center;
+  padding-top:24px;
+}
+
+h1,h2,h3{
+  color:var(--gold);
+  margin:8px 0 12px;
+}
+
+.subtitle{
+  color:var(--muted);
+  margin-top:4px;
+}
+
+/* PRÊMIOS */
+#premios{
+  background:var(--panel);
+  border-radius:16px;
+  box-shadow:0 0 0 1px rgba(201,185,120,0.15) inset;
+}
+
+.premio{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap:12px;
+  align-items:center;
+  padding:10px 8px;
+}
+
+.premio .barra{
+  position:relative;
+  height:12px;
+  width:100%;
+  background:rgba(255,255,255,0.08);
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.premio .fill{
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:0%;
+  background:linear-gradient(90deg, var(--gold), var(--gold-2));
+  transition:width .6s ease;
+}
+
+.premio .label{
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+/* REGISTRO */
+#registro{
+  background:var(--panel);
+  border-radius:16px;
+  margin-top:16px;
+  box-shadow:0 0 0 1px rgba(201,185,120,0.15) inset;
+}
+
+.registro-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:center;
+  margin-bottom:12px;
+}
+
+#registro input{
+  background:#0f1f1e;
+  color:var(--text);
+  border:1px solid rgba(201,185,120,0.25);
+  border-radius:10px;
+  padding:10px 12px;
+  min-width:180px;
+  outline:none;
+}
+
+.status{
+  display:flex;
+  gap:24px;
+  justify-content:center;
+  align-items:center;
+  margin:8px 0 16px;
+}
+
+.editor{
+  border-top:1px solid rgba(201,185,120,0.15);
+  padding-top:12px;
+}
+
+.editor-row{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.btn{
+  background:var(--btn);
+  color:var(--text);
+  border:none;
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.btn:hover{ background:var(--btn-hov); }
+.primary{ background:var(--gold); color:var(--bg); }
+.primary:hover{ background:var(--gold-2); }
+
+/* JOGOS */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap:16px;
+  margin:16px 0 24px;
+}
+
+.card{
+  background:var(--panel);
+  border-radius:16px;
+  padding:16px;
+  box-shadow:0 0 0 1px rgba(201,185,120,0.15) inset;
+  text-align:center;
+}
+
+.inputs{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin:8px 0;
+}
+.inputs input{
+  background:#0f1f1e;
+  color:var(--text);
+  border:1px solid rgba(201,185,120,0.25);
+  border-radius:10px;
+  padding:10px 12px;
+  min-width:120px;
+  outline:none;
+}
+
+.resultado{
+  min-height:28px;
+  margin-top:8px;
+  color:var(--muted);
+}
+
+/* Roleta */
+.roleta-wrap{
+  position:relative;
+  display:flex; justify-content:center; align-items:center;
+  margin:8px 0 10px;
+}
+.roleta-pointer{
+  position:absolute;
+  top:-6px;
+  width:0; height:0;
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  border-bottom:16px solid var(--gold);
+  filter:drop-shadow(0 0 2px rgba(0,0,0,0.6));
+}
+.roleta-wheel{
+  width:160px; height:160px;
+  border-radius:50%;
+  border:6px solid var(--gold);
+  background:
+    conic-gradient(
+      #0f1f1e 0 10deg,
+      #1c3a34 10deg 20deg,
+      #0f1f1e 20deg 30deg,
+      #1c3a34 30deg 40deg,
+      #0f1f1e 40deg 50deg,
+      #1c3a34 50deg 60deg,
+      #0f1f1e 60deg 70deg,
+      #1c3a34 70deg 80deg,
+      #0f1f1e 80deg 90deg,
+      #1c3a34 90deg 100deg,
+      #0f1f1e 100deg 110deg,
+      #1c3a34 110deg 120deg,
+      #0f1f1e 120deg 130deg,
+      #1c3a34 130deg 140deg,
+      #0f1f1e 140deg 150deg,
+      #1c3a34 150deg 160deg,
+      #0f1f1e 160deg 170deg,
+      #1c3a34 170deg 180deg,
+      #0f1f1e 180deg 190deg,
+      #1c3a34 190deg 200deg,
+      #0f1f1e 200deg 210deg,
+      #1c3a34 210deg 220deg,
+      #0f1f1e 220deg 230deg,
+      #1c3a34 230deg 240deg,
+      #0f1f1e 240deg 250deg,
+      #1c3a34 250deg 260deg,
+      #0f1f1e 260deg 270deg,
+      #1c3a34 270deg 280deg,
+      #0f1f1e 280deg 290deg,
+      #1c3a34 290deg 300deg,
+      #0f1f1e 300deg 310deg,
+      #1c3a34 310deg 320deg,
+      #0f1f1e 320deg 330deg,
+      #1c3a34 330deg 340deg,
+      #0f1f1e 340deg 360deg
+    );
+  display:flex; justify-content:center; align-items:center;
+}
+.roleta-center{
+  width:28px; height:28px; background:var(--gold);
+  border-radius:50%;
+}
+
+/* Dados */
+.dados-area{
+  display:flex; justify-content:center; gap:10px; align-items:center;
+  margin:6px 0 10px;
+}
+.dado{
+  width:54px; height:54px;
+  border-radius:8px;
+  border:2px solid var(--gold);
+  display:flex; justify-content:center; align-items:center;
+  font-size:1.4rem; font-weight:600;
+  background:#0f1f1e;
+}
+
+/* Slots */
+.slots{ display:flex; justify-content:center; gap:8px; align-items:center; margin:8px 0 10px; }
+.slot{
+  width:54px; height:54px;
+  border-radius:8px;
+  border:2px solid var(--gold);
+  display:flex; justify-content:center; align-items:center;
+  font-size:1.6rem; background:#0f1f1e;
+}
+
+/* Footer */
+.footer{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:24px;
+}
+
+/* Pequenas animações auxiliares */
+.spin{ animation:spin 2s ease-out forwards; }
+@keyframes spin{ from{transform:rotate(0)} to{transform:rotate(1080deg)} }
+
+.shake{ animation:shake .8s ease-out; }
+@keyframes shake{
+  0%,100%{ transform:translateX(0) }
+  20%{ transform:translateX(-6px) }
+  40%{ transform:translateX(6px) }
+  60%{ transform:translateX(-3px) }
+  80%{ transform:translateX(3px) }
+}

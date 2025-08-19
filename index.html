@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cassino Lótus — Niké</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="container">
+    <h1>Cassino & Hotel Lótus de Ouro</h1>
+    <p class="subtitle">Sorte e vitória sob o olhar de Νίκη</p>
+  </header>
+
+  <!-- PRÊMIOS / PROGRESSO -->
+  <section id="premios" class="container">
+    <h2>Prêmios</h2>
+    <div class="premio" data-cost="200">
+      <div class="barra"><span class="fill"></span></div>
+      <div class="label"><strong>200</strong> Dracmas — Pelúcia de Anta</div>
+    </div>
+    <div class="premio" data-cost="350">
+      <div class="barra"><span class="fill"></span></div>
+      <div class="label"><strong>350</strong> Dracmas — Sapatos da Nike</div>
+    </div>
+    <div class="premio" data-cost="500">
+      <div class="barra"><span class="fill"></span></div>
+      <div class="label"><strong>500</strong> Dracmas — Bebida Energética da Nike</div>
+    </div>
+    <div class="premio" data-cost="700">
+      <div class="barra"><span class="fill"></span></div>
+      <div class="label"><strong>700</strong> Dracmas — Coroa de Louros</div>
+    </div>
+    <div class="premio" data-cost="1000">
+      <div class="barra"><span class="fill"></span></div>
+      <div class="label"><strong>100</strong> Dracmas — Saída individual</div>
+    </div>
+  </section>
+
+  <!-- REGISTRO / STATUS -->
+  <section id="registro" class="container">
+    <h2>Registro do Jogador</h2>
+    <div class="registro-row">
+      <input id="nomeInput" type="text" placeholder="Seu nome" />
+      <input id="dracmasIniciais" type="number" min="0" placeholder="Dracmas iniciais (opcional)" />
+      <button id="btnRegistrar" class="btn primary">Registrar / Entrar</button>
+      <button id="btnSair" class="btn">Sair / Trocar</button>
+    </div>
+
+    <div class="status">
+      <div><strong>Jogador:</strong> <span id="nomeJogador">—</span></div>
+      <div><strong>Dracmas:</strong> <span id="dracmas">0</span></div>
+    </div>
+
+    <div class="editor">
+      <h3>Editar Dracmas</h3>
+      <div class="editor-row">
+        <input id="ajusteValor" type="number" step="1" placeholder="Valor de ajuste" />
+        <button id="btnAdicionar" class="btn">+ Adicionar</button>
+        <button id="btnRemover" class="btn">− Remover</button>
+        <button id="btnDefinir" class="btn">Definir valor</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOGOS -->
+  <main id="jogos" class="container grid">
+    <!-- ROLETa -->
+    <section class="card">
+      <h3>🎡 Roleta</h3>
+      <div class="roleta-wrap">
+        <div id="roletaWheel" class="roleta-wheel">
+          <div class="roleta-center"></div>
+        </div>
+        <div class="roleta-pointer"></div>
+      </div>
+      <div class="inputs">
+        <input id="apostaRoleta" type="number" min="1" placeholder="Aposta" />
+        <input id="numeroRoleta" type="number" min="0" max="36" placeholder="Número (0–36)" />
+      </div>
+      <button id="btnRoleta" class="btn primary">Girar</button>
+      <div id="resultadoRoleta" class="resultado"></div>
+    </section>
+
+    <!-- DADOS -->
+    <section class="card">
+      <h3>🎲 Dados</h3>
+      <div class="dados-area">
+        <div id="dado1" class="dado">1</div>
+        <div id="dado2" class="dado">1</div>
+      </div>
+      <div class="inputs">
+        <input id="apostaDados" type="number" min="1" placeholder="Aposta" />
+      </div>
+      <button id="btnDados" class="btn primary">Rolar</button>
+      <div id="resultadoDados" class="resultado"></div>
+    </section>
+
+    <!-- JACKPOT -->
+    <section class="card">
+      <h3>💰 Jackpot</h3>
+      <div class="slots">
+        <span id="col1" class="slot">🍒</span>
+        <span id="col2" class="slot">🍒</span>
+        <span id="col3" class="slot">🍒</span>
+      </div>
+      <div class="inputs">
+        <input id="apostaJackpot" type="number" min="1" placeholder="Aposta" />
+      </div>
+      <button id="btnJackpot" class="btn primary">Girar</button>
+      <div id="resultadoJackpot" class="resultado"></div>
+    </section>
+  </main>
+
+  <!-- Áudio -->
+  <audio id="sndRoleta" src="sounds/roleta.wav" preload="auto"></audio>
+  <audio id="sndDado" src="sounds/dado.wav" preload="auto"></audio>
+  <audio id="sndSlot" src="sounds/dracmas.wav" preload="auto"></audio>
+  <audio id="sndJackpot" src="sounds/jackpot.wav" preload="auto"></audio>
+
+  <footer class="container footer">Lótus • Niké</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
