@@ -63,15 +63,21 @@ const UI = {
     this.els.dracmas.textContent = player?.dracmas ?? 0;
   },
 
-  updatePrizes(player) {
-    const val = player?.dracmas ?? 0;
-    document.querySelectorAll(".premio").forEach(p => {
-      const cost = parseInt(p.dataset.cost);
-      const fill = p.querySelector(".fill");
-      const pct = Math.min(100, Math.floor((val / cost) * 100));
+updatePrizes(player) {
+  const val = player?.dracmas ?? 0;
+  const premios = document.querySelectorAll(".premio");
+
+  premios.forEach((p, index) => {
+    const cost = parseInt(p.dataset.cost);
+    const fill = p.querySelector(".fill");
+    const pct = Math.min(100, Math.floor((val / cost) * 100));
+
+    // delay baseado no índice (index * 300ms por exemplo)
+    setTimeout(() => {
       fill.style.width = pct + "%";
-    });
-  },
+    }, index * 555);
+  });
+},
 
   wheelSpin() {
     this.els.wheel.classList.remove("spin");
